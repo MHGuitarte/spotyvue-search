@@ -25,6 +25,15 @@ body,
   background-color: black;
 }
 
+#app {
+  position: relative;
+  margin-top: 100px;
+
+  @media screen and (max-width: $md) {
+      margin-top: 0;
+  }
+}
+
 html,
 body,
 * {

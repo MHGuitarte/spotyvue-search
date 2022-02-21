@@ -1,6 +1,13 @@
 <template>
   <aside class="header">
-    <Title />
+    <section class="header__title">
+      <img
+        src="../assets/logo.png"
+        alt="page logo"
+        class="header__title__icon"
+      />
+      <h1 class="header__title__text">SpotiVue Search</h1>
+    </section>
     <section class="header__search">
       <!-- this section can be componetized -->
       <input
@@ -58,14 +65,12 @@
 
 <script>
 import SearchIcon from '../components/icons/SearchIcon.vue';
-import Title from './Title.vue';
 import { useMainStore } from '../stores/index.js';
 import { mapStores } from 'pinia';
 
 export default {
   components: {
     SearchIcon,
-    Title,
   },
   data() {
     return {
@@ -100,9 +105,50 @@ export default {
   display: flex;
   flex-flow: row;
   max-height: 100px;
-  margin-top: 1rem;
+  padding-top: 1rem;
   width: 100%;
   align-items: center;
+  position: fixed;
+  background-color: black;
+  z-index: 2;
+  top: 0;
+
+  @media screen and (max-width: $md) {
+    display: grid;
+    grid-template-columns: 90%;
+    position: static;
+    width: 100%;
+    justify-content: center;
+  }
+
+  &__title {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: $md) {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      align-content: center;
+      justify-items: center;
+    }
+
+    &__icon {
+      width: 20%;
+
+      @media screen and (max-width: $md) {
+        width: 100%;
+      }
+    }
+
+    &__text {
+      color: $green-primary;
+      @media screen and (max-width: $md) {
+        font-size: $h3;
+      }
+    }
+  }
 
   &__search {
     background-color: white;
@@ -110,6 +156,12 @@ export default {
     height: 4vh;
     display: flex;
     flex-flow: row;
+
+    @media screen and (max-width: $md) {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 80% 20%;
+    }
 
     &__input {
       background-color: white;
@@ -126,6 +178,7 @@ export default {
       background-color: transparent;
       border: 0;
       width: 48px;
+      height: 4vh;
       display: flex;
       place-items: center;
       place-content: center;
@@ -135,15 +188,20 @@ export default {
         cursor: pointer;
       }
 
-      &__x {
-        color: $green-primary;
-      }
-
       &__search {
         background: $green-primary;
         color: white;
         padding: 1rem;
         width: 10%;
+
+        @media screen and (max-width: $md) {
+          width: 100%;
+          padding: 0.5rem;
+
+          > * {
+            font-size: $h4;
+          }
+        }
       }
     }
 
