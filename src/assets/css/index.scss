@@ -1,0 +1,58 @@
+// variables
+$green-primary: rgb(29, 137, 84);
+$green-light: rgba(29, 137, 84, 0.6);
+
+//text
+$h1: 50px;
+$h2: 42px;
+$h3: 34px;
+$h4: 26px;
+$h5: 18px;
+$h6: 10px;
+$text: 18px;
+
+//media breakpoints
+$lg: 1260px;
+$md: 960px;
+$sm: 480px;
+
+// main styles
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+html,
+body,
+* {
+  font-size: $text;
+}
+
+h {
+  &1 {
+    font-size: $h1;
+  }
+
+  &2 {
+    font-size: $h2;
+  }
+
+  &3 {
+    font-size: $h3;
+  }
+
+  &4 {
+    font-size: $h4;
+  }
+
+  &5 {
+    font-size: $h5;
+  }
+
+  &6 {
+    font-size: $h6;
+  }
+}
