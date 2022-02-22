@@ -58,7 +58,6 @@ export default {
   methods: {
     toggleSmallContent() {
       if (this.showData) {
-        console.log('true');
         document
           .querySelector(`.result__info#${this.formattedId}`)
           .classList.add('result--shown');
@@ -66,7 +65,6 @@ export default {
           .querySelector(`.result__image#${this.formattedId}`)
           .classList.remove('result--shown');
       } else {
-        console.log('false');
         document
           .querySelector(`.result__info#${this.formattedId}`)
           .classList.remove('result--shown');
@@ -146,6 +144,10 @@ export default {
       flex-flow: column;
       justify-content: center;
       height: 100%;
+
+      @media screen and (max-width: $md) {
+        width: 100%;
+      }
     }
 
     &__attribute {
@@ -155,6 +157,8 @@ export default {
 
       @media screen and (max-width: $md) {
         margin: 0.2rem 1rem;
+        width: 80%;
+        white-space: normal;
       }
     }
 

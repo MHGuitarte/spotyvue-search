@@ -78,7 +78,7 @@ export default {
 
     @media screen and (max-width: $md) {
       width: 60%;
-      margin: 1rem;
+      margin-top: 60rem;
     }
 
     &:hover {
