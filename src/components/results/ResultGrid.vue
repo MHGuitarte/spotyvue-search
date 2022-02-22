@@ -1,6 +1,8 @@
 <template>
   <div class="results">
-    <h2 class="results__title">{{ title }} - {{ results.totalResults }}</h2>
+    <h2 class="results__title">
+      {{ title }} - {{ results.totalResults }} coincidences
+    </h2>
     <div class="results__grid">
       <Result v-for="item in results.items" :key="item.id" :item="item" />
     </div>
@@ -48,6 +50,11 @@ export default {
 
   &__title {
     margin-bottom: 2rem;
+
+    @media screen and (max-width: $md) {
+      font-size: $h4;
+      margin-bottom: 1rem;
+    }
   }
 
   &__grid {
@@ -55,6 +62,11 @@ export default {
     grid-template-columns: 24% 24% 24% 24%;
     column-gap: 1%;
     justify-items: center;
+
+    @media screen and (max-width: $md) {
+      grid-template-columns: 100%;
+      row-gap: 0.2%;
+    }
   }
 
   &__more {
@@ -63,6 +75,11 @@ export default {
     background-color: $green-primary;
     width: 20%;
     height: 60px;
+
+    @media screen and (max-width: $md) {
+      width: 60%;
+      margin: 1rem;
+    }
 
     &:hover {
       cursor: pointer;

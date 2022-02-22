@@ -51,7 +51,6 @@ export const useMainStore = defineStore('main', {
 
         // TODO: this needs control for empty responses
         if (loadMore) {
-          console.log('BIEN');
           this[loadMore].nextSearch = response[loadMore].next;
           this[loadMore].items = [
             ...this[loadMore].items,
@@ -96,5 +95,12 @@ export const useMainStore = defineStore('main', {
         return undefined;
       }
     },
+    changeResultFilter (filter) {
+      if (this.resultFilters.includes(filter)) {
+        this.resultFilters = this.resultFilters.filter(rF => rF !== filter);
+      } else {
+        this.resultFilters.push(filter);
+      }
+    }
   },
 });

@@ -61,25 +61,43 @@ export default {
       return this.isDebouncing ? 'Searching...' : 'There are no results';
     },
   },
+  async mounted() {
+    await this.mainStore.getToken();
+  },
 };
 </script>
 <style lang="scss">
 .home {
   padding: 4rem;
+
+  @media screen and (max-width: $md) {
+    padding: 1rem;
+  }
+
   &__results {
     width: 100%;
+    margin-bottom: 6rem;
+
     * {
       color: white;
     }
-    margin-bottom: 6rem;
+
+    @media screen and (max-width: $md) {
+      margin-bottom: 4rem;
+    }
   }
 
   &__noresult {
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 6rem;
     color: white;
     text-align: center;
     font-size: $h2;
+
+    @media screen and (max-width: $md) {
+      font-size: $h3;
+      margin-top: 16rem;
+    }
   }
 }
 </style>
